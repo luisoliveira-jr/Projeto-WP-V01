@@ -21,6 +21,9 @@ export class ListaSalasComponent implements OnInit {
   //Filtra salas de acordo com a busca do usuário
   moments: Moment[] = []
 
+  //String do campo pesquisa
+  searchTerm: string = '';
+
   constructor(private momentService: MomentService) {}
 
   ngOnInit(): void { 
@@ -37,6 +40,15 @@ export class ListaSalasComponent implements OnInit {
       this.moments = data
 
     })
+  }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+
+    this.moments = this.allMoments.filter((moment) => {
+      return moment.title.toLocaleLowerCase().includes(value);
+    });
   }
 
 

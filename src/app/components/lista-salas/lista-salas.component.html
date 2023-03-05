@@ -1,12 +1,29 @@
 <div class="lista-container">
-    <h2 class="fw-bold text-white" style="margin: 15px; margin-bottom: 25px; font-size: 40px;">
+    <h2 class="fw-bold text-white" style="margin: 15px; font-size: 40px;">
         Veja o que estão compartilhando!
     </h2>
 
     <!-- form de busca -->
+    <div class="input-group" style="margin: 20px; width: 50%;">
+        <input (input)="search($event)"
+        class="bg-light form-control border-0 small" 
+        type="text" 
+        placeholder="Pesquisar">
+        
+        <!-- Botão localizar sala -->
+        <button class="btn btn-primary py-0" 
+            data-bs-toggle="tooltip" 
+            data-bss-tooltip="" 
+            type="button"
+            style="background: #ffc61e;border-color: #ffc61e;"
+            title="Pesquisar sala">
+                <!-- Icone localizar sala -->
+                <i class="fa fa-search" style="color: #3a3b45;font-size: 20px;"></i>
+            </button>
+    </div>
 
     <div *ngIf="moments.length > 0; else noMoments">
-        <div class="salas-container">
+        <div class="salas-container" style="margin: 20px;">
             <div class="sala" *ngFor="let moment of moments">
                 
                 <div class="card" style="width: 18rem; margin: 10px; margin-bottom: 25px;">
