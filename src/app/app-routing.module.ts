@@ -5,7 +5,7 @@ import { SalaComponent } from "./components/sala/sala.component";
 import { HomeComponent } from "./components/home/home.component";
 
 const routes: Routes = [
-  { path: 'app-home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'app-sala', component: SalaComponent },
 ];
 

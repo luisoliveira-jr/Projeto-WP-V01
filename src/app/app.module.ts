@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { SalaComponent } from './components/sala/sala.component';
 import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SalaComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
