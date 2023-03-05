@@ -20,11 +20,11 @@
                 </div>
 
                 <!-- Link do vídeo -->
-                <input class="form-control border-1 small" formControlName="video" type="url"
+                <input type="url" (change)="onUrlSelected($event)" class="form-control border-1 small" formControlName="image" 
                     placeholder="Insira o link do vídeo (YouTube)" style="margin-bottom: 10px; font-size: 15px;"
                     required>
-                <div *ngIf="video.invalid && formDir.submitted" class="validation-error">
-                    <p class="text-danger small" style="padding-left: 10px;" *ngIf="video.errors?.['required']">O link
+                <div *ngIf="image.invalid && formDir.submitted" class="validation-error">
+                    <p class="text-danger small" style="padding-left: 10px;" *ngIf="image.errors?.['required']">O link
                         do vídeo é obrigatório</p>
                 </div>
 

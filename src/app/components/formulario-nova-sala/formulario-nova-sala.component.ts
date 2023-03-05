@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Moment } from 'src/app/interfaces/Moment';
 
 @Component({
   selector: 'app-formulario-nova-sala',
@@ -8,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormularioNovaSalaComponent implements OnInit {
   @Input() btnText!: string
+  @Output() onSubmit = new EventEmitter<Moment>()
+
   salaForm!: FormGroup
 
   constructor() { }
@@ -17,7 +20,7 @@ export class FormularioNovaSalaComponent implements OnInit {
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      video: new FormControl('', [Validators.required])
+      image: new FormControl('', [Validators.required])
     })
    }
 
@@ -29,15 +32,24 @@ export class FormularioNovaSalaComponent implements OnInit {
     return this.salaForm.get('description')!;
    }
 
-   get video() {
-    return this.salaForm.get('video')!;
+   get image() {
+    return this.salaForm.get('image')!;
+   }
+
+   onUrlSelected(event: any) {
+    const url: URL = event.target.urls[0];
+
+    this.salaForm.patchValue({ image: url});
    }
 
   submit() {
     if (this.salaForm.invalid) {
-      return
+      return;
     }
-    console.log("Enviou formulário")
+    
+    console.log(this.salaForm.value);
+
+    this.onSubmit.emit(this.salaForm.value);
   }
 
 }

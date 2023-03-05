@@ -14,36 +14,30 @@
         <div class="row">
 
             <div class="col-12" style="margin-bottom: 10px;">
-                
+
                 <!-- Botão ativar configuração -->
                 <div class="col">
-                    <button class="btn" 
-                    type="button"
-                    style="float: left; color: #3a3b45;background: #ffc61e;border-color: #ffc61e;"
-                    title="Configurar sala">
+                    <button class="btn" type="button"
+                        style="float: left; color: #3a3b45;background: #ffc61e;border-color: #ffc61e;"
+                        title="Configurar sala">
                         <strong>Configurar sala</strong>
                     </button>
                 </div>
-                
+
                 <!-- Coluna botão sair -->
                 <div class="col">
-                    <button class="btn btn-danger" 
-                    routerLink="/" 
-                    style="float: right;" 
-                    role="button"
-                    data-bs-toggle="tooltip" 
-                    data-bss-tooltip="" 
-                    title="Sair"> 
+                    <button class="btn btn-danger" routerLink="/" style="float: right;" role="button"
+                        data-bs-toggle="tooltip" data-bss-tooltip="" title="Sair">
                         <strong>Sair</strong>
                         <i class="fa fa-sign-in" style="margin-left: 15px; color: whitesmoke;font-size: 20px;"></i>
                     </button>
                 </div>
             </div>
             <div class="col-12">
-                
+
                 <!-- Card configuração sala -->
-                <div class="card shadow mb-3"> 
-                    <!-- Cabeçalho card configuração sala -->                  
+                <div class="card shadow mb-3">
+                    <!-- Cabeçalho card configuração sala -->
                     <div class="card-header">
                         <div class="row">
                             <!-- Coluna texto -->
@@ -59,7 +53,7 @@
                     <!-- Corpo card configuração sala -->
                     <div class="card-body">
                         <!-- formulario -->
-                        <app-formulario-nova-sala [btnText]="btnText"></app-formulario-nova-sala>
+                        <app-formulario-nova-sala [btnText]="btnText" (onSubmit)="createHandler($event)"></app-formulario-nova-sala>
                     </div>
                 </div>
             </div>
