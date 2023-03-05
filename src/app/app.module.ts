@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormularioNovaSalaComponent } from './components/formulario-nova-sala/formulario-nova-sala.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ListaSalasComponent } from './components/lista-salas/lista-salas.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,17 @@ import { FormularioNovaSalaComponent } from './components/formulario-nova-sala/f
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    FormularioNovaSalaComponent
+    FormularioNovaSalaComponent,
+    MessagesComponent,
+    ListaSalasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

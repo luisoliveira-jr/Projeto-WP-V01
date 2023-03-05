@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Moment } from 'src/app/interfaces/Moment';
 import { MomentService } from 'src/app/services/moment.service';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-sala',
@@ -8,9 +10,13 @@ import { MomentService } from 'src/app/services/moment.service';
   styleUrls: ['./sala.component.css']
 })
 export class SalaComponent implements OnInit {
-  btnText = "Compartilhar"
+  btnText = "Concluir"
 
-  constructor(private momentService: MomentService) { }
+  constructor(
+    private momentService: MomentService, 
+    private messagesService: MessagesService,
+    private router: Router 
+  ){ }
 
   ngOnInit(): void { }
 
@@ -22,6 +28,12 @@ export class SalaComponent implements OnInit {
     formData.append('image', moment.image)
 
     await this.momentService.createMoment(formData).subscribe();
+
+    this.messagesService.add('Sala configurada com sucesso!')
+
+    //Redireciona a página
+    this.router.navigate(['/'])
+
   }
 
 
