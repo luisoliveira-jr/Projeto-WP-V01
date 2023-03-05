@@ -13,6 +13,7 @@ import { FormularioNovaSalaComponent } from './components/formulario-nova-sala/f
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListaSalasComponent } from './components/lista-salas/lista-salas.component';
+import { SalaCriadaComponent } from './components/sala-criada/sala-criada.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListaSalasComponent } from './components/lista-salas/lista-salas.compon
     FooterComponent,
     FormularioNovaSalaComponent,
     MessagesComponent,
-    ListaSalasComponent
+    ListaSalasComponent,
+    SalaCriadaComponent
   ],
   imports: [
     BrowserModule,
