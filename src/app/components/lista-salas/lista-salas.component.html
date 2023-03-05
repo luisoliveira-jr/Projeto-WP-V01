@@ -1,1 +1,26 @@
-<p>lista-salas works!</p>
+<div class="lista-container">
+    <h2 class="fw-bold text-white" style="margin: 15px; margin-bottom: 25px; font-size: 40px;">
+        Veja o que estão compartilhando!
+    </h2>
+
+    <!-- form de busca -->
+
+    <div *ngIf="moments.length > 0; else noMoments">
+        <div class="salas-container">
+            <div class="sala" *ngFor="let moment of moments">
+                
+                <div class="card" style="width: 18rem; margin: 10px; margin-bottom: 25px;">
+                    <img class="card-img-top" src="../../../assets/img/spa.gif " alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{moment.title}}</h5>
+                      <p class="card-text">{{moment.description}}</p>
+                      <a href="#" class="btn btn-warning" style="float: right;">Acessar</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #noMoments>
+        <h1 class="fw-bold text-white" style="margin: 15px; margin-bottom: 25px; font-size: 40px;">Não há momentos cadastrados</h1>
+    </ng-template>
+</div>
