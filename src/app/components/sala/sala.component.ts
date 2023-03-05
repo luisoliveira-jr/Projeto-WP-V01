@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sala',
   templateUrl: './sala.component.html',
   styleUrls: ['./sala.component.css']
 })
-export class SalaComponent {
+export class SalaComponent implements OnInit {
+  btnText = "Compartilhar"
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
 
 }

@@ -9,6 +9,7 @@ import { SalaComponent } from './components/sala/sala.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormularioNovaSalaComponent } from './components/formulario-nova-sala/formulario-nova-sala.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SalaComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FormularioNovaSalaComponent
   ],
   imports: [
     BrowserModule,
