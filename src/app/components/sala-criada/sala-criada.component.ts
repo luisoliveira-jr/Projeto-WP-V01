@@ -13,6 +13,7 @@ import { MessagesService } from 'src/app/services/messages.service';
 })
 export class SalaCriadaComponent implements OnInit{
   moment?: Moment;
+  link?: string;
 
   constructor(
     private momentService: MomentService,
@@ -32,6 +33,11 @@ export class SalaCriadaComponent implements OnInit{
     .getMoment(id)
     .subscribe((item) => (this.moment = item.data)) ;   
 
+    /* this.momentService
+    .getMoment(id)
+    .subscribe((item) => (this.link = item.data.image)) ; */
+
+/* console.log(this.link) */
     /* this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(linkEmbed) */
 
   }

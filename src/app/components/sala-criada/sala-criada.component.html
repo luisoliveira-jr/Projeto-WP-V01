@@ -19,7 +19,7 @@
         <a class="btn"
         style="margin: 5px; background: #ffc61e;border-color: #ffc61e;"
         title="Editar"
-        href="/sala/edit/{{moment.id}}">
+        routerLink="/sala/editar/{{moment.id}}">
             <i class="fa fa-edit"
             style="color: #3a3b45;font-size: 16px;border-color: #3a3b45;"></i>
         </a>
@@ -41,6 +41,9 @@
             <strong>O id da sua sessão é {{moment.id}} </strong><br>
                 Compartilhe!
         </div>
+        <p class="fw-bold text-white" style="margin-top: 10px;">
+            {{link}}
+        </p>  
     </div>
 </div>
 

@@ -23,6 +23,8 @@ export class SalaComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  buildForm() {}
+
   async createHandler(moment: Moment) {
     const formData = new FormData();
 
@@ -44,7 +46,7 @@ export class SalaComponent implements OnInit {
     this.messagesService.add('Sala configurada com sucesso!')
 
     //Redireciona a página
-    this.router.navigate(['/'])
+    this.router.navigate([`/`])
 
   }
 

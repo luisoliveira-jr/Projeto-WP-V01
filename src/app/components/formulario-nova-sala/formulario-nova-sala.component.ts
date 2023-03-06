@@ -9,18 +9,21 @@ import { Moment } from 'src/app/interfaces/Moment';
 })
 export class FormularioNovaSalaComponent implements OnInit {
   @Input() btnText!: string
+  @Input() salaData: Moment | null = null;
   @Output() onSubmit = new EventEmitter<Moment>()
 
-  salaForm!: FormGroup
+  salaForm!: FormGroup;
+  moment!: Moment;
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
     this.salaForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required])
+      id: new FormControl(this.salaData ? this.salaData.id : ''),
+      title: new FormControl(this.salaData ? this.salaData.title : '', [Validators.required]),
+      description: new FormControl(this.salaData ? this.salaData.description : '', [Validators.required]),
+      image: new FormControl(this.salaData ? this.salaData.image : '', [Validators.required])
     })
    }
 
@@ -36,7 +39,7 @@ export class FormularioNovaSalaComponent implements OnInit {
     return this.salaForm.get('image')!;
    }
 
-   onUrlSelected(event: any) {
+ onUrlSelected(event: any) {
     const url: URL = event.target.urls[0];
 
     this.salaForm.patchValue({ image: url});

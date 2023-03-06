@@ -1,1 +1,70 @@
-<p>editar-sala works!</p>
+<div class="row">
+    <!-- Coluna detalhes da sessão-->
+    <div class="col-9">
+        <h2 class="fw-bold text-white" style="margin-top: 10px;">
+            Nome da sala {{moment.title}}
+        </h2>    
+        <p class="fw-bold text-white">
+            Descrição {{moment.description}}
+        </p> 
+        <!-- <p class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px;">
+            Link {{moment.image}}
+        </p>  -->
+    </div>
+
+    <!-- Coluna compartilhamento id-->
+    <div class="col-3" style="margin: 0px;">
+        <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 10px;">
+            <strong>O id da sua sessão é {{moment.id}} </strong><br>
+                Compartilhe!
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <!-- Coluna vídeo -->
+    <div class="col-9">
+        <div class="embed">
+            <!-- <iframe [src]="urlSafe"></iframe> -->
+            <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
+        </div>
+    </div>
+
+    <!-- Coluna vídeo configuração e chat-->
+    <div class="col-3">
+
+        <!-- Linha configuração sala -->
+        <div class="row">
+
+            <div class="col-12">
+
+                <!-- Card configuração sala -->
+                <div class="card shadow mb-3">
+                    <!-- Cabeçalho card configuração sala -->
+                    <div class="card-header">
+                        <div class="row">
+                            <!-- Coluna texto -->
+                            <div class="col-xxl-9">
+                                <label class="col-form-label" for="username" style="color: #3a3b45;">
+                                    <strong>Edite sua sala</strong>                                   
+                                    <br>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Corpo card configuração sala -->
+                    <div class="card-body">
+                        <!-- formulario -->
+                       <app-formulario-nova-sala 
+                       (onSubmit)="editHandler($event)"
+                       [btnText]="btnText"
+                       [salaData]="moment">
+                        </app-formulario-nova-sala>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
