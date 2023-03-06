@@ -28,15 +28,6 @@ export class SalaComponent implements OnInit {
   async createHandler(moment: Moment) {
     const formData = new FormData();
 
- /*    const img = moment.image
-
-    let index = img.indexOf("=");
-    let resultado = img.slice(index + 1, index + 12);
-    console.log(resultado);
-    let linkEmbed = `https://www.youtube.com/embed/+${resultado}`
-    
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(linkEmbed) */
-
     formData.append('title', moment.title);
     formData.append('description', moment.description);
     formData.append('image', moment.image);

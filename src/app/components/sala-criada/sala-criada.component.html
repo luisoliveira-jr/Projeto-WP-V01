@@ -35,9 +35,6 @@
                 <strong>O id da sua sessão é {{moment.id}} </strong><br>
                 Compartilhe!
             </div>
-            <p class="fw-bold text-white" style="margin-top: 10px;">
-                {{link}}
-            </p>
         </div>
     </div>
 
@@ -45,8 +42,7 @@
         <!-- Coluna vídeo -->
         <div class="col-9">
             <div class="embed">
-                <!-- <iframe [src]="urlSafe"></iframe> -->
-                <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
+                <iframe [src]="urlSafe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
 

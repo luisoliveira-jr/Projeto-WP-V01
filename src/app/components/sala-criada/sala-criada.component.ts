@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { Moment } from 'src/app/interfaces/Moment';
 import { Comment } from 'src/app/interfaces/Comment';
@@ -16,8 +16,10 @@ import { MessagesService } from 'src/app/services/messages.service';
 })
 export class SalaCriadaComponent implements OnInit {
   moment?: Moment;
-  commentForm!: FormGroup
+  commentForm!: FormGroup;
   link?: string;
+  linkEmbed: string = 'https://www.youtube.com/embed/';
+  urlSafe: any;
 
   constructor(
     private momentService: MomentService,
@@ -25,9 +27,8 @@ export class SalaCriadaComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private commentService: CommentService,
-    public sanitizer: DomSanitizer) { }
-
-  /* @Input() urlSafe!: SafeResourceUrl; */
+    private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
 
@@ -43,12 +44,19 @@ export class SalaCriadaComponent implements OnInit {
       username: new FormControl(" ", [Validators.required])
     })
 
-    /* this.momentService
-    .getMoment(id)
-    .subscribe((item) => (this.link = item.data.image)) ; */
+    this.momentService
+      .getMoment(id)
+      .subscribe((item) => {
+        this.link = item.data.image
 
-    /* console.log(this.link) */
-    /* this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(linkEmbed) */
+        let index = this.link.indexOf("=");
+        this.link = this.link.slice(index + 1, index + 12);
+
+        this.linkEmbed = 'https://www.youtube.com/embed/' + this.link;
+        this.urlSafe =
+          this.sanitizer.bypassSecurityTrustResourceUrl(this.linkEmbed);
+
+      });
 
   }
 
@@ -70,7 +78,7 @@ export class SalaCriadaComponent implements OnInit {
 
   async onSubmit(formDirective: FormGroupDirective) {
 
-    if(this.commentForm.invalid) {
+    if (this.commentForm.invalid) {
       return
     };
 
