@@ -27,6 +27,10 @@ export class FormularioNovaSalaComponent implements OnInit {
     })
    }
 
+   get id() {
+    return this.salaForm.get('id')!;
+   }
+
    get title() {
     return this.salaForm.get('title')!;
    }
@@ -37,12 +41,6 @@ export class FormularioNovaSalaComponent implements OnInit {
 
    get image() {
     return this.salaForm.get('image')!;
-   }
-
- onUrlSelected(event: any) {
-    const url: URL = event.target.urls[0];
-
-    this.salaForm.patchValue({ image: url});
    }
 
   submit() {

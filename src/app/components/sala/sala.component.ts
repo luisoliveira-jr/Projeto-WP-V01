@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Moment } from 'src/app/interfaces/Moment';
 import { MomentService } from 'src/app/services/moment.service';
 import { MessagesService } from 'src/app/services/messages.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sala',
@@ -12,16 +12,41 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class SalaComponent implements OnInit {
   btnText = "Concluir";
-  /* urlSafe!: SafeResourceUrl; */
+  
+  //Pega todas as salas
+  allMoments: Moment[] = []
+
+  //Busca uma sala
+  moments: Moment[] = []
+
+  moment: any;
+
+  fila?: number;
+  idNewRoom?: number;
+
+  baseApiUrl = environment.baseApiUrl
 
   constructor(
     private momentService: MomentService,
     private messagesService: MessagesService,
     private router: Router,
-    public sanitizer: DomSanitizer
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    
+    this.momentService.getMoments().subscribe((items) => {
+      const data = items.data;
+
+      data.map((item) => {
+        item.created_at = new Date(item.created_at!).toLocaleDateString(
+          'pt-BR'
+        );
+      });
+
+      this.allMoments = data
+      this.moments = data
+    })
+   }
 
   buildForm() {}
 
@@ -32,15 +57,19 @@ export class SalaComponent implements OnInit {
     formData.append('description', moment.description);
     formData.append('image', moment.image);
 
-    await this.momentService.createMoment(formData).subscribe();
+    await this.momentService.createMoment(formData).subscribe()
 
-    this.messagesService.add('Sala configurada com sucesso!')
+    this.momentService.getMoments().subscribe((items) => {
+      const data = items.data;
 
-    //Redireciona a página
-    this.router.navigate([`/`])
+      this.allMoments = data
+
+      this.fila = this.allMoments.length
+      this.idNewRoom = this.allMoments[this.fila-1].id
+
+      this.messagesService.add(`Sala ${this.allMoments[this.fila-1].title} configurada com sucesso!`)
+      this.router.navigate([`/sala/${this.idNewRoom}`])
+    })
 
   }
-
-
-
 }

@@ -20,7 +20,7 @@
                 </div>
 
                 <!-- Link do vídeo -->
-                <input type="url" (change)="onUrlSelected($event)" class="form-control border-1 small" formControlName="image" 
+                <input type="url" class="form-control border-1 small" formControlName="image" 
                     placeholder="Insira o link do vídeo (YouTube)" style="margin-bottom: 10px; font-size: 15px;"
                     required>
                 <div *ngIf="image.invalid && formDir.submitted" class="validation-error">
