@@ -2,7 +2,7 @@
 
 <div class="row">
     <!-- Coluna detalhes da sessão-->
-    <div class="col-9">
+    <div class="col-7">
         <h2 class="fw-bold text-white" style="margin-top: 10px;">
             Nome da sala {{moment.title}}
         </h2>    
@@ -13,12 +13,33 @@
             Link {{moment.image}}
         </p>  -->
     </div>
+    <div class="col-2">
+        <div class="actions" style="margin: 10px;">
+        <!-- Botão editar -->
+        <a class="btn"
+        style="margin: 5px; background: #ffc61e;border-color: #ffc61e;"
+        title="Editar"
+        href="/sala/edit/{{moment.id}}">
+            <i class="fa fa-edit"
+            style="color: #3a3b45;font-size: 16px;border-color: #3a3b45;"></i>
+        </a>
+
+        <!-- Botão excluir -->
+        <a class="btn btn-danger" type="submit"
+        style="margin: 5px;"
+        title="Excluir"
+        (click)="removeHandler(moment.id!)">
+            <i class="fa fa-trash"
+            style="font-size: 16px;"></i>
+    </a>
+        </div>
+    </div>
 
     <!-- Coluna compartilhamento id-->
-    <div class="col-3">
-        <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 15px;">
+    <div class="col-3" style="margin: 0px;">
+        <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 10px;">
             <strong>O id da sua sessão é {{moment.id}} </strong><br>
-                Compartilhe sessão com seus amigos!
+                Compartilhe!
         </div>
     </div>
 </div>

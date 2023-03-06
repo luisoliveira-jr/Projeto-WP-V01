@@ -17,18 +17,19 @@
                     <div class="input-group" style="width: 300px;">
 
                         <!-- Campo id sala -->
-                        <input class="bg-light form-control border-0 small" type="text" placeholder="Digite o id da sala">
+                        <input (input)="search($event)" class="bg-light form-control border-0 small" type="text" placeholder="Digite o id da sala">
                         
-                        <!-- Botão localizar sala -->
-                        <button class="btn btn-primary py-0" 
-                            data-bs-toggle="tooltip" 
-                            data-bss-tooltip="" 
-                            type="button"
-                            style="background: #ffc61e;border-color: #ffc61e;"
-                            title="Pesquisar sala">
-                                <!-- Icone localizar sala -->
-                                <i class="fa fa-keyboard-o" style="color: #3a3b45;font-size: 30px;"></i>
-                            </button>
+                        <!-- Botão localizar sala routerLink="/sala/{{moment.id}}"-->
+                        <a class="btn btn-primary py-0" 
+                        
+                        data-bs-toggle="tooltip" 
+                        data-bss-tooltip="" 
+                        type="button"
+                        style="background: #ffc61e;border-color: #ffc61e;"
+                        title="Pesquisar sala">
+                            <!-- Icone localizar sala -->
+                            <i class="fa fa-keyboard-o" style="color: #3a3b45;font-size: 30px;"></i>
+                        </a>
                     </div>
                     <p style="font-size: 20px;margin-top: 5px;margin-bottom: 5px;">
                         ou

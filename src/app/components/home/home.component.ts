@@ -1,10 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Moment } from 'src/app/interfaces/Moment';
+import { MomentService } from 'src/app/services/moment.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  moment?: Moment;
+
+  constructor(
+    private momentService: MomentService,
+    private route: ActivatedRoute,
+  ) {}
+  
+  ngOnInit(): void { 
+    
+    //id que está na passado na barra de busca
+    const id = Number(this.route.snapshot.paramMap.get("id"))
+
+    this.momentService
+    .getMoment(id)
+    .subscribe((item) => (this.moment = item.data)) ;   
+  }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement
+    const id = target.id
+
+    this.momentService
+    .getMoment(Number(id))
+    .subscribe((item) => (this.moment = item.data)) ;
+  }
 
 }

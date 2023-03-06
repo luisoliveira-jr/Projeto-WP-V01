@@ -3,6 +3,7 @@ import { Moment } from 'src/app/interfaces/Moment';
 import { MomentService } from 'src/app/services/moment.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MessagesService } from 'src/app/services/messages.service';
 
 
 @Component({
@@ -15,7 +16,9 @@ export class SalaCriadaComponent implements OnInit{
 
   constructor(
     private momentService: MomentService,
+    private messagesService: MessagesService,
     private route: ActivatedRoute,
+    private router: Router,
     public sanitizer: DomSanitizer) {}
 
     /* @Input() urlSafe!: SafeResourceUrl; */
@@ -31,6 +34,14 @@ export class SalaCriadaComponent implements OnInit{
 
     /* this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(linkEmbed) */
 
+  }
+
+  async removeHandler(id: number) {
+    await this.momentService.removeMoment(id).subscribe();
+
+    this.messagesService.add("Sala excluída com sucesso!");
+
+    this.router.navigate(['/']);
   }
 
 }
