@@ -1,8 +1,33 @@
-<div class="row" style="margin-top: 10px;margin-right: 10px;margin-bottom: 10px;margin-left: 0px;">
+<div *ngIf="moment">
 
+<div class="row">
+    <!-- Coluna detalhes da sessão-->
+    <div class="col-9">
+        <h2 class="fw-bold text-white" style="margin-top: 10px;">
+            Nome da sala {{moment.title}}
+        </h2>    
+        <p class="fw-bold text-white">
+            Descrição {{moment.description}}
+        </p> 
+        <!-- <p class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px;">
+            Link {{moment.image}}
+        </p>  -->
+    </div>
+
+    <!-- Coluna compartilhamento id-->
+    <div class="col-3">
+        <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 10px;">
+            <strong>O id da sua sessão é {{moment.id}} </strong><br>
+                Compartilhe o id desta sessão com seus amigos!
+        </div>
+    </div>
+</div>
+
+<div class="row" >
     <!-- Coluna vídeo -->
     <div class="col-9">
         <div class="embed">
+            <!-- <iframe [src]="urlSafe"></iframe> -->
             <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
         </div>
     </div>
@@ -48,4 +73,5 @@
         </div>
 
     </div>
+</div>
 </div>

@@ -20,6 +20,7 @@
                 <!-- Icone localizar sala -->
                 <i class="fa fa-search" style="color: #3a3b45;font-size: 20px;"></i>
             </button>
+            
     </div>
 
     <div *ngIf="moments.length > 0; else noMoments">
@@ -31,7 +32,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{moment.title}}</h5>
                       <p class="card-text">{{moment.description}}</p>
-                      <a href="#" class="btn btn-warning" style="float: right;">Acessar</a>
+                      <a class="btn btn-warning" routerLink="/sala/{{moment.id}}" style="float: right;">Acessar</a>
                     </div>
                   </div>
             </div>

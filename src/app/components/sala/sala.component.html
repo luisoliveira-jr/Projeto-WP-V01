@@ -23,7 +23,7 @@
                             <!-- Coluna texto -->
                             <div class="col-xxl-9">
                                 <label class="col-form-label" for="username" style="color: #3a3b45;">
-                                    <strong>Configure sua sala</strong>
+                                    <strong>Configure sua sala</strong>                                   
                                     <br>
                                 </label>
                             </div>
@@ -33,7 +33,8 @@
                     <!-- Corpo card configuração sala -->
                     <div class="card-body">
                         <!-- formulario -->
-                        <app-formulario-nova-sala [btnText]="btnText" (onSubmit)="createHandler($event)"></app-formulario-nova-sala>
+                        <app-formulario-nova-sala [btnText]="btnText"
+                            (onSubmit)="createHandler($event)"></app-formulario-nova-sala>
                     </div>
                 </div>
             </div>
