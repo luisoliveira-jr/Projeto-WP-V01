@@ -2,10 +2,10 @@
     <!-- Coluna detalhes da sessão-->
     <div class="col-9">
         <h2 class="fw-bold text-white" style="margin-top: 10px;">
-            Nome da sala {{moment.title}}
+            {{moment.title}}
         </h2>    
         <p class="fw-bold text-white">
-            Descrição {{moment.description}}
+            {{moment.description}}
         </p> 
         <!-- <p class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px;">
             Link {{moment.image}}
@@ -25,8 +25,7 @@
     <!-- Coluna vídeo -->
     <div class="col-9">
         <div class="embed">
-            <!-- <iframe [src]="urlSafe"></iframe> -->
-            <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
+            <iframe [src]="urlSafe"></iframe>
         </div>
     </div>
 
@@ -41,20 +40,23 @@
                 <!-- Card configuração sala -->
                 <div class="card shadow mb-3">
                     <!-- Cabeçalho card configuração sala -->
-                    <div class="card-header">
+                    <div class="card-header" style="margin: 0px; padding: 10px;">
                         <div class="row">
                             <!-- Coluna texto -->
                             <div class="col-xxl-9">
-                                <label class="col-form-label" for="username" style="color: #3a3b45;">
+                                <label class="col-form-label" for="username" style="margin: 0px; padding: 10px; color: #3a3b45;">
                                     <strong>Edite sua sala</strong>                                   
                                     <br>
                                 </label>
+                                <div class="alert alert-danger small" role="alert" style="margin-bottom: 5px; padding: 10px;">
+                                    <strong>No momento o link do vídeo não pode ser editado</strong>
+                                </div>
                             </div>
 
                         </div>
                     </div>
                     <!-- Corpo card configuração sala -->
-                    <div class="card-body">
+                    <div class="card-body" style="margin: 0px; padding: 10;">
                         <!-- formulario -->
                        <app-formulario-nova-sala 
                        (onSubmit)="editHandler($event)"
