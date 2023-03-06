@@ -21,7 +21,7 @@ Este projeto tem como base aplicações de wacth parties, como [YouTube](https:/
 
 #### É possível [acessar por aqui](https://watch-party-project-ipx0g5h1e-luisoliveira-jr.vercel.app/) o deploy da aplicação que foi feito pelo Vercel.
 
-## Para rodar a aplicação locamente siga os passos a seguir:
+## Para rodar a aplicação localmente siga os passos a seguir:
 
 ### Sobre o Front End
 
@@ -36,8 +36,6 @@ Acesse o repositório [aqui](https://github.com/luisoliveira-jr/Projeto-WP-V01)
 Acesse o repositório [aqui](https://github.com/matheusbattisti/curso_adonis_api_yt)
 
 Foi ultilizada uma API disponibilizada no Git Hub por Matheus Battisti, detalhes sobre como ela foi desenvolvida, você pode [acessar por aqui](https://www.youtube.com/watch?v=y8XfJJYhXPE&list=PLnDvRpP8BneyHealXbzntUoFtE4SrFWWW&index=3)
-
-# Para rodar a aplicação back end locamente siga os passos a seguir:
 
 - Com o Node instalado, executar o comando: `npm install` dentro da pasta raiz do projeto
 - Executar o comando: `node ace generate:key` dentro da pasta raiz do projeto
