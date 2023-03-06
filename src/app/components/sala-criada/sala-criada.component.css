@@ -12,5 +12,9 @@
 }
 
 .card-body{
-    height: 60vh;
+    height: 42vh;
+}
+
+.scroll {
+    overflow-y: auto;
 }

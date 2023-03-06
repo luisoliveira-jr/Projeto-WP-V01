@@ -1,101 +1,101 @@
 <div *ngIf="moment">
 
-<div class="row">
-    <!-- Coluna detalhes da sessão-->
-    <div class="col-7">
-        <h2 class="fw-bold text-white" style="margin-top: 10px;">
-            Nome da sala {{moment.title}}
-        </h2>    
-        <p class="fw-bold text-white">
-            Descrição {{moment.description}}
-        </p> 
-        <!-- <p class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px;">
+    <div class="row">
+        <!-- Coluna detalhes da sessão-->
+        <div class="col-7">
+            <h2 class="fw-bold text-white" style="margin-top: 10px;">
+                Nome da sala {{moment.title}}
+            </h2>
+            <p class="fw-bold text-white">
+                Descrição {{moment.description}}
+            </p>
+            <!-- <p class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px;">
             Link {{moment.image}}
         </p>  -->
-    </div>
-    <div class="col-2">
-        <div class="actions" style="margin: 10px;">
-        <!-- Botão editar -->
-        <a class="btn"
-        style="margin: 5px; background: #ffc61e;border-color: #ffc61e;"
-        title="Editar"
-        routerLink="/sala/editar/{{moment.id}}">
-            <i class="fa fa-edit"
-            style="color: #3a3b45;font-size: 16px;border-color: #3a3b45;"></i>
-        </a>
-
-        <!-- Botão excluir -->
-        <a class="btn btn-danger" type="submit"
-        style="margin: 5px;"
-        title="Excluir"
-        (click)="removeHandler(moment.id!)">
-            <i class="fa fa-trash"
-            style="font-size: 16px;"></i>
-    </a>
         </div>
-    </div>
+        <div class="col-2">
+            <div class="actions" style="margin: 10px;">
+                <!-- Botão editar -->
+                <a class="btn" style="margin: 5px; background: #ffc61e;border-color: #ffc61e;" title="Editar"
+                    routerLink="/sala/editar/{{moment.id}}">
+                    <i class="fa fa-edit" style="color: #3a3b45;font-size: 16px;border-color: #3a3b45;"></i>
+                </a>
 
-    <!-- Coluna compartilhamento id-->
-    <div class="col-3" style="margin: 0px;">
-        <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 10px;">
-            <strong>O id da sua sessão é {{moment.id}} </strong><br>
+                <!-- Botão excluir -->
+                <a class="btn btn-danger" type="submit" style="margin: 5px;" title="Excluir"
+                    (click)="removeHandler(moment.id!)">
+                    <i class="fa fa-trash" style="font-size: 16px;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Coluna compartilhamento id-->
+        <div class="col-3" style="margin: 0px;">
+            <div class="alert alert-dark small" role="alert" style="margin-top: 10px; padding: 10px;">
+                <strong>O id da sua sessão é {{moment.id}} </strong><br>
                 Compartilhe!
-        </div>
-        <p class="fw-bold text-white" style="margin-top: 10px;">
-            {{link}}
-        </p>  
-    </div>
-</div>
-
-<div class="row" >
-    <!-- Coluna vídeo -->
-    <div class="col-9">
-        <div class="embed">
-            <!-- <iframe [src]="urlSafe"></iframe> -->
-            <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
-        </div>
-    </div>
-
-    <!-- Coluna vídeo configuração e chat-->
-    <div class="col-3">
-        <div class="card shadow mb-3">
-            <div class="card-header" >
-                <label class="form-label" for="username" style="color: #3a3b45;">
-                    <strong>Chat ao vivo</strong>
-                    <br>
-                </label>
             </div>
-            <div class="card-body">
-                <form>
-                    <div class="row">
-                        <div class="col" >
-                            <div class="mb-3">
-                                <label class="form-label" for="username">
-                                    <strong>Username:</strong> aqui vai um texto
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="align-self: baseline;">
-                        <div class="col-lg-12 d-lg-flex align-items-lg-center"
-                            style="padding-bottom: 12px;padding-top: 12px;">
-                            <div class="input-group">
-                                <input class="bg-light form-control" type="text" placeholder="Digite algo"
-                                    style="border-width: 0px;border-color: #3a3b45;">
-                                <button class="btn btn-primary py-0" data-bs-toggle="tooltip"
-                                    data-bss-tooltip="" type="submit"
-                                    style="background: #3a3b45;border-color: #3a3b45;"
-                                    title="Enviar comentário">
-                                    <i class="fa fa-send"
-                                        style="color: #ffc61e;font-size: 18px;border-color: #3a3b45;"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            <p class="fw-bold text-white" style="margin-top: 10px;">
+                {{link}}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Coluna vídeo -->
+        <div class="col-9">
+            <div class="embed">
+                <!-- <iframe [src]="urlSafe"></iframe> -->
+                <iframe src="https://www.youtube.com/embed/idFDqft11m0"></iframe>
             </div>
         </div>
 
+        <!-- Coluna vídeo configuração e chat-->
+        <div class="col-3">
+
+            <div class="card shadow mb-3">
+                <div class="card-header">
+                    <label class="form-label" for="username" style="color: #3a3b45;">
+                        <strong>Chat ao vivo</strong> {{moment.comments!.length > 0 ? moment.comments!.length: ' '}}
+                        <br>
+                    </label>
+                </div>
+                <div class="card-body scroll" >
+                    <div class="mb-3" *ngIf="moment.comments!.length > 0; else noComments">
+                        <div class="comment-conatiner" *ngFor="let comment of moment.comments">
+                            <p class="comment" style="font-size: 12px;"><strong>{{comment.username}}:</strong>
+                                {{comment.text}}</p>
+                        </div>
+                    </div>
+                    <ng-template #noComments>
+                        <p>Não há mensagens</p>
+                    </ng-template>
+                </div>
+                <div class="card-footer text-muted" style="padding: 0px;">
+                    <form [formGroup]="commentForm" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
+                        <div class="form-group">
+                            <input class="bg-light form-control" formControlName="username" type="text" placeholder="Nome"
+                                style="border-width: 1px;border-color: #999999;">
+                                <div *ngIf="username.invalid && formDir.submitted" class="validation-error">
+                                    <p class="text-danger small" style="padding-left: 10px;" *ngIf="username.errors?.['required']">
+                                        O nome é obrigatório</p>
+                                </div>
+                            <input class="bg-light form-control" formControlName="text" type="text" placeholder="Comentário"
+                                style="border-width: 1px;border-color: #999999;">
+                                <div *ngIf="text.invalid && formDir.submitted" class="validation-error">
+                                    <p class="text-danger small" style="padding-left: 10px;" *ngIf="text.errors?.['required']">
+                                        O comentário é obrigatório</p>
+                                </div>
+                            <button class="btn form-control" data-bs-toggle="tooltip"
+                                type="submit" style="float: right; background: #3a3b45;border-color: #3a3b45;"
+                                title="Enviar comentário">
+                                <i class="fa fa-send" style="color: #ffc61e;font-size: 18px;border-color: #3a3b45;"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 </div>
