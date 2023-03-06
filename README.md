@@ -14,22 +14,24 @@ Este projeto tem como base aplicações de wacth parties, como [YouTube](https:/
 - Acessar listagem de salas criadas;
 - Pesquisar por uma sala, por meio do id;
 - Pesquisar dinâmicamente uma sala por meio do nome texto digitado no campo de busca;
-- Adicionar comentários, dentro da sala
+- Chat de texto / Comentários;
+- Contador de comentários / mensagens;
 - Contagem de comentário automática;
+- Aplicação hospedada no Vercel.
 
-## É possível [acessar por aqui](https://watch-party-project-ipx0g5h1e-luisoliveira-jr.vercel.app/) o deploy da aplicação que foi feito pelo Vercel.
+#### É possível [acessar por aqui](https://watch-party-project-ipx0g5h1e-luisoliveira-jr.vercel.app/) o deploy da aplicação que foi feito pelo Vercel.
 
-# Para rodar a aplicação front end locamente siga os passos a seguir:
+## Para rodar a aplicação locamente siga os passos a seguir:
 
-## Sobre o Front End
+### Sobre o Front End
 
 Acesse o repositório [aqui](https://github.com/luisoliveira-jr/Projeto-WP-V01)
 
--Baixar e instalar Nodejs
--Pela linha de comando no terminal, dentro da pasta raiz do projeto, instalar pacotes do Node: `npm install`
--Pela linha de comando no terminal, dentro da pasta raiz do projeto, executar um projeto: `ng serve`
+- Baixar e instalar Nodejs;
+- Pela linha de comando no terminal, dentro da pasta raiz do projeto, instalar pacotes do Node: `npm install` ;
+-Pela linha de comando no terminal, dentro da pasta raiz do projeto, executar um projeto: `ng serve` ;
 
-## Sobre o Back End
+### Sobre o Back End
 
 Acesse o repositório [aqui](https://github.com/matheusbattisti/curso_adonis_api_yt)
 
@@ -43,13 +45,12 @@ Foi ultilizada uma API disponibilizada no Git Hub por Matheus Battisti, detalhes
 - Ajustar o arquivo de variáveis de ambiente: .env.example
     -> copiar e colar o Arquivo
     -> renomear a cópia para: .env
-- No novo arquivo .env substituir a chave em APP_KEY para a que foi gerada pelo comando node ace generate:key
+- No novo arquivo .env substituir a chave em APP_KEY para a que foi gerada pelo comando `node ace generate:key`
 - Para criar o banco de dados, executar: `node ace migration:run` dentro da pasta raiz do projeto,
 - Executar o comando: `node ace serve` dentro da pasta raiz do projeto,
 
 
-
-## Detalhes 
+## Detalhes sobre Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
