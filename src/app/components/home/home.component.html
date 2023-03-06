@@ -5,46 +5,42 @@
                 <div class="text-white p-4 p-md-5">
                     <!-- Título -->
                     <h2 class="fw-bold text-white" style="margin-bottom: 5px; margin-top: 20px; font-size: 30px;">
-                    Assistir vídeos sozinho? Nunca mais!
+                        Assistir vídeos sozinho? Nunca mais!
                     </h2>
-                    
+
                     <!-- Paragráfo -->
                     <p class="mb-4" style="font-size: 20px;">
-                        Aqui na Watch Party você e seus amigos, podem assistir seus vídeos favoritos, juntos e de onde estiverem!
+                        Aqui na Watch Party você e seus amigos, podem assistir seus vídeos favoritos, juntos e de onde
+                        estiverem!
                     </p>
 
                     <!-- Localizar sala -->
-                    <div class="input-group" style="width: 300px;">
+                    <form>
+                        <div class="input-group" style="width: 300px;">
 
-                        <!-- Campo id sala -->
-                        <input (input)="search($event)" class="bg-light form-control border-0 small" type="text" placeholder="Digite o id da sala">
-                        
-                        <!-- Botão localizar sala routerLink="/sala/{{moment.id}}"-->
-                        <a class="btn btn-primary py-0" 
+                            <!-- Campo id sala -->
+                            <input [(ngModel)]="idSala" name="idSala" class="bg-light form-control border-0 small" type="text"
+                                placeholder="Digite o id da sala">
 
-                        data-bs-toggle="tooltip" 
-                        data-bss-tooltip="" 
-                        type="button"
-                        style="background: #ffc61e;border-color: #ffc61e;"
-                        title="Pesquisar sala">
-                            <!-- Icone localizar sala -->
-                            <i class="fa fa-keyboard-o" style="color: #3a3b45;font-size: 30px;"></i>
-                        </a>
-                    </div>
+                            <!-- Botão localizar sala routerLink="/sala/{{moment.id}}"-->
+                            <a routerLink="/sala/{{idSala}}"class="btn btn-primary py-0" data-bs-toggle="tooltip" data-bss-tooltip="" type="submit"
+                                style="background: #ffc61e;border-color: #ffc61e;" title="Pesquisar sala">
+                                <!-- Icone localizar sala -->
+                                <i class="fa fa-keyboard-o" style="color: #3a3b45;font-size: 30px;"></i>
+                            </a>
+                        </div>
+                    </form>
                     <p style="font-size: 20px;margin-top: 5px;margin-bottom: 5px;">
                         ou
                     </p>
 
                     <!-- Botão criar sala -->
-                    <a class="btn btn-lg d-lg-flex me-2" 
-                    routerLink="/app-sala"
-                    role="button"
-                    data-bs-toggle="tooltip" 
-                    data-bss-tooltip=""
-                    style="background: #ffc61e;color: #3a3b45;border-color: #ffc61e;width: 232px;"
-                    >
+                    <a class="btn btn-lg d-lg-flex me-2" routerLink="/app-sala" role="button" data-bs-toggle="tooltip"
+                        data-bss-tooltip=""
+                        style="background: #ffc61e;color: #3a3b45;border-color: #ffc61e;width: 232px;">
                         <!-- Icone criar sala -->
-                        <i class="fa fa-play" style="color: #3a3b45;font-size: 30px;margin-right: 20px;margin-left: 10px;"></i>
+                        <i class="fa fa-play"
+                            style="color: #3a3b45;font-size: 30px;margin-right: 20px;margin-left: 10px;"></i>
                         Crie sua sala
                     </a>
                 </div>

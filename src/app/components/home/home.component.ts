@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   moment?: Moment;
+  idSala?: number;
 
   constructor(
     private momentService: MomentService,
@@ -25,15 +26,6 @@ export class HomeComponent implements OnInit {
     this.momentService
     .getMoment(id)
     .subscribe((item) => (this.moment = item.data)) ;   
-  }
-
-  search(e: Event): void {
-    const target = e.target as HTMLInputElement
-    const id = target.id
-
-    this.momentService
-    .getMoment(Number(id))
-    .subscribe((item) => (this.moment = item.data)) ;
   }
 
 }
