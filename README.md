@@ -17,6 +17,7 @@ Este projeto tem como base aplicações de wacth parties, como [YouTube](https:/
 - Chat de texto / Comentários;
 - Contador de comentários / mensagens;
 - Contagem de comentário automática;
+- Exibição de alertas para o usuário em ações específicas (criar, editar, excluir)
 - Aplicação hospedada no Vercel.
 
 #### É possível [acessar por aqui](https://watch-party-project-ipx0g5h1e-luisoliveira-jr.vercel.app/) o deploy da aplicação que foi feito pelo Vercel.
@@ -47,6 +48,7 @@ Foi ultilizada uma API disponibilizada no Git Hub por Matheus Battisti, detalhes
 - Para criar o banco de dados, executar: `node ace migration:run` dentro da pasta raiz do projeto,
 - Executar o comando: `node ace serve` dentro da pasta raiz do projeto,
 
+![gif-wp](https://user-images.githubusercontent.com/57881244/223286100-e98de068-3f0f-4e83-a65a-6d1d6c11006b.gif)
 
 ## Detalhes sobre Angular
 
